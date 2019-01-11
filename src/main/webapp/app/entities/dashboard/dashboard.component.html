@@ -110,8 +110,8 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th><span>Expected Total</span></th>
-                <th><span>Actual Total</span></th>
+                <th><span>Amount Budgeted</span></th>
+                <th><span>Amount Spent</span></th>
                 <th><span>Percent Spent</span></th>
                 <th></th>
             </tr>
@@ -119,8 +119,8 @@
             <tbody>
             <tr *ngFor="let budget of budgets ;trackBy: trackId">
                 <td>{{budget.expectedTotal | currency}}</td>
-                <td>{{budget.actualTotal | currency}}</td>
-                <progress-bar [progress]= budget.actualTotal/budget.expectedTotal*100 [color-degraded]="{'0': '#488aff',  '100': '#FF0000'}">
+                <td>{{budget.actualTotal*-1 | currency}}</td>
+                <progress-bar [progress]= budget.actualTotal/budget.expectedTotal*-100 [color-degraded]="{'0': '#488aff',  '-100': '#FF0000'}">
                 </progress-bar>
             </tr>
             </tbody>
